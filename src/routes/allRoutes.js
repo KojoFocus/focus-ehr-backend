@@ -13,7 +13,7 @@ import {
   register,
   login,
   logout,
-  profile,
+  
   
 } from "../controllers/userController.js";
 import {
@@ -25,8 +25,8 @@ import {
 const router = express.Router();
 
 // Diagnosis routes
-router.post("/api/diagnosis", addDiagnosis);
-router.get("/api/diagnosis", getDiagnoses);
+router.post("/diagnosis", addDiagnosis);
+router.get("/diagnosis", getDiagnoses);
 // router.get('/diagnosis/:id', getDiagnosis);
 // router.put('/diagnosis/:id', updateDiagnosis);
 // router.delete('/diagnosis/:id', deleteDiagnosis);
@@ -41,7 +41,7 @@ router.get("/patients", getPatients);
 // User routes
 router.post("/users/register", register);
 router.post("/users/login", login);
-router.get("/users/me", profile);
+
 router.post("/users/logout", logout);
 
 // VitalSign routes

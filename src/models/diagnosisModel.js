@@ -4,7 +4,7 @@ const schema = mongoose.Schema
 
 const DiagnosisSchema = new schema({
     patientId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         required: true
     },
 
