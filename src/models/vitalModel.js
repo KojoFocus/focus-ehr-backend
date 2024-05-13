@@ -3,6 +3,12 @@ import mongoose from "mongoose";
 const schema = mongoose.Schema 
 
 const VitalSignSchema = new schema({
+   
+    date: {
+        type: String,
+        required: true
+    },
+
     patientId: {
         type: String,
         required: true

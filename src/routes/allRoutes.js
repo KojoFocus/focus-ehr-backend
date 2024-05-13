@@ -7,6 +7,8 @@ import {
 import {
   addPatient,
   getPatients,
+  deleteAllPatients,
+  getPatient
   
 } from "../controllers/patientController.js";
 import {
@@ -34,9 +36,9 @@ router.get("/diagnosis", getDiagnoses);
 // Patient routes
 router.post("/patients", addPatient);
 router.get("/patients", getPatients);
-// router.get('/patient/:id', getPatient);
+router.get('/patient/:id', getPatient);
 // router.put('/patient/:id', updatePatient);
-// router.delete('/patient/:id', deletePatient);
+router.delete('/patients', deleteAllPatients);
 
 // User routes
 router.post("/users/register", register);

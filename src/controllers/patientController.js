@@ -44,10 +44,32 @@ export const getPatient = async (req, res, next) => {
     }
 }
 
-export const updatePatient = (req, res) => {
-    res.send('Update single patient');
+// export const updatePatient = (req, res) => {
+//     res.send('Update single patient');
+// }
+
+export const updatePatient = async (req, res, next) => {
+    try {
+        const updateResult = await patientModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (updateResult === null) {
+            return res.status(404).json({
+                message: `Patient with ObjectId: ${req.params.id} Not Found!`
+            });
+        }
+        res.status(200).json(updateResult);
+    } catch (error) {
+        next(error);
+    }
 }
 
-export const deletePatient = (req, res) => {
-    res.send('Delete single patient');
+export const deleteAllPatients = async (req, res, next) => {
+    try {
+        // Delete all patients from database
+        const deleteResult = await patientModel.deleteMany({});
+        // Return response
+        res.status(200).json({ message: 'All patients have been deleted' });
+    } catch (error) {
+        // Forward to express error handler
+        next(error);
+    }
 }
